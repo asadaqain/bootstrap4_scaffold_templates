@@ -1,24 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Bootstrap 4 Templates for Scaffolding + Plus other goodies
 
-Things you may want to cover:
+I created this project to have reusble scaffolding code for bootstrap 4 rails projects. You may take from this what you need. All the custom changes are listed below.
 
-* Ruby version
 
-* System dependencies
+#### BS4 Scaffolding Templates
+* Copy the following to your BS4 project
 
-* Configuration
+~~~ruby 
+~/lib/templates/erb/scaffold/[index|new|edit|show|_form]
+~~~
 
-* Database creation
+* This simply run scaffold code and it will use the new templates.
 
-* Database initialization
+~~~ruby 
+rails g scaffold <ModelName> <field:type> ... 
+~~~ 
 
-* How to run the test suite
+#### Choosing What To Generate
+* Most of the time, I use my own CSS or BS4 overrides as needed. I do not use coffee scripts or individual model javascripts. To avoid unnessary files/code, add the following to ../config/application.rb
 
-* Services (job queues, cache servers, search engines, etc.)
+~~~ruby
+config.generators do |g|
+      g.orm             :active_record
+      g.template_engine :erb
+      g.test_framework  :test_unit, fixture: false
+      g.stylesheets     false
+      g.javascripts     false
+      g.helper          false
+    end
+~~~
 
-* Deployment instructions
+#### Still playing around with
+* \_form.html.erb **form\_with** field styling and maybe **simpleform**
+* Navbar experiments 
 
-* ...
