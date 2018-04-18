@@ -1,0 +1,56 @@
+<div class="card">
+  <div class="card-body">
+
+<%= form_with(model: request, local: true) do |form| %>
+  <% if request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :request_name, class:"form-control form-control-sm" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :request_email, class:"form-control form-control-sm" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :department %>
+    <%= form.text_field :department, id: :request_department, class:"form-control form-control-sm" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :contact_phone %>
+    <%= form.text_field :contact_phone, id: :request_contact_phone, class:"form-control form-control-sm" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :number_of_sections %>
+    <%= form.text_field :number_of_sections, id: :request_number_of_sections, class:"form-control form-control-sm" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :integer %>
+    <%= form.text_field :integer, id: :request_integer, class:"form-control form-control-sm" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :comment %>
+    <%= form.text_area :comment, id: :request_comment, class:"form-control form-control-sm" %>
+  </div>
+
+    <%= form.submit class:"btn btn-success"  %>
+    <%= link_to "Cancel", requests_path, class:"btn btn-danger" %>
+<% end %>
+  </div>
+</div> <!-- card close -->

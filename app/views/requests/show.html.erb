@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title">request Record</h3>    
+    <dl class="row">
+        
+    <div class="col">
+      <dt>Name:</dt>
+      <dd><%= @request.name %></dd>
+            
+      <dt>Email:</dt>
+      <dd><%= @request.email %></dd>
+    </div>
+            
+    <div class="col">
+      <dt>Department:</dt>
+      <dd><%= @request.department %></dd>
+            
+      <dt>Contact phone:</dt>
+      <dd><%= @request.contact_phone %></dd>
+    </div>
+            
+    <div class="col">
+      <dt>Number of sections:</dt>
+      <dd><%= @request.number_of_sections %></dd>
+            
+      <dt>Integer:</dt>
+      <dd><%= @request.integer %></dd>
+    </div>
+            
+    <div class="col">
+      <dt>Comment:</dt>
+      <dd><%= @request.comment %></dd>
+    </div>
+        
+    </dl>
+    <%= link_to 'Edit', edit_request_path(@request), class: 'btn btn-sm btn-primary' %> 
+    <%= link_to 'Back', requests_path, class: 'btn btn-sm btn-secondary' %>
+  </div>
+</div> <!-- card end -->

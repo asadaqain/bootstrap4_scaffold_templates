@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-body">
+
+<%%= form_with(model: <%= singular_table_name %>, local: true) do |form| %>
+  <%% if <%= singular_table_name %>.errors.any? %>
+    <div id="error_explanation">
+      <h2><%%= pluralize(<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h2>
+
+      <ul>
+      <%% <%= singular_table_name %>.errors.full_messages.each do |message| %>
+        <li><%%= message %></li>
+      <%% end %>
+      </ul>
+    </div>
+  <%% end %>
+
+<% attributes.each do |attribute| -%>
+  <div class="field form-group">
+<% if attribute.password_digest? -%>
+    <%%= form.label :password %>
+    <%%= form.password_field :password, id: :<%= field_id(:password) %> %>
+  </div>
+
+  <div class="field form-group">
+    <%%= form.label :password_confirmation %>
+    <%%= form.password_field :password_confirmation, id: :<%= field_id(:password_confirmation) %>, class:"form-control form-control-sm" %>
+<% else -%>
+    <%%= form.label :<%= attribute.column_name %> %>
+    <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, id: :<%= field_id(attribute.column_name) %>, class:"form-control form-control-sm" %>
+<% end -%>
+  </div>
+
+<% end -%>
+    <%%= form.submit class:"btn btn-success"  %>
+    <%%= link_to "Cancel", <%= plural_table_name %>_path, class:"btn btn-danger" %>
+<%% end %>
+  </div>
+</div> <!-- card close -->

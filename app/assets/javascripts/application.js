@@ -14,6 +14,7 @@
 //= require turbolinks
 //= require jquery3
 //= require popper
-//= require bootstrap  // require bootstrap-sprockets if individual components for debugging
+//= require bootstrap  
+// require bootstrap-sprockets if individual components for debugging
 
 //= require_tree .

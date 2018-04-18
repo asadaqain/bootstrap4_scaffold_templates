@@ -1,0 +1,19 @@
+<p id="notice"><%%= notice %></p>
+
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title"><%= singular_table_name %> Record</h3>    
+    <dl class="row">
+    <% attributes.reject(&:password_digest?).each.with_index do |attribute, index| -%>
+    <% if index % 2 == 0 %>
+    <div class="col"><% end %>
+      <dt><%= attribute.human_name %>:</dt>
+      <dd><%%= @<%= singular_table_name %>.<%= attribute.name %> %></dd>
+    <% if index % 2 == 1 || index == attributes.size - 1 -%></div>
+    <% end -%>
+    <% end %>
+    </dl>
+    <%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-sm btn-primary' %> 
+    <%%= link_to 'Back', <%= index_helper %>_path, class: 'btn btn-sm btn-secondary' %>
+  </div>
+</div> <!-- card end -->
