@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 ## DEPLOYMENT
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 4.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
